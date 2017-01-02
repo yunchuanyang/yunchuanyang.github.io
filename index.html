@@ -163,7 +163,7 @@
 <p>1.不要使用cmd来操作hexo d命令。要用git bash命令。<br>2.最好使用git bash命令行工具，其它工具比如babun虽然也兼容了git bash命令，但在使用https方式发布代码时，遇到输入github账号密码步骤，可能会没有响应。</p>
 </blockquote>
 <h4 id="使用https方式发布代码"><a href="#使用https方式发布代码" class="headerlink" title="使用https方式发布代码"></a>使用https方式发布代码</h4><blockquote>
-<p>_config.xml中配置如下：<br>deploy:<br>    type: git<br>    repo: <a href="https://github.com/yourname/yourname.github.io">https://github.com/yourname/yourname.github.io</a></p>
+<p>_config.xml中配置如下：<br>deploy:<br>    type: git<br>    repo: [<a href="https://github.com/yourname/yourname.github.io">https://github.com/yourname/yourname.github.io</a>]</p>
 </blockquote>
 <h4 id="使用ssh方式发布"><a href="#使用ssh方式发布" class="headerlink" title="使用ssh方式发布"></a>使用ssh方式发布</h4><blockquote>
 <p><a href="http://blog.csdn.net/binyao02123202/article/details/20130891" target="_blank" rel="external">github设置添加SSH</a><br><a href="https://help.github.com/articles/generating-an-ssh-key/" target="_blank" rel="external">github设置添加SSH-help</a><br>需要在github上配置ssh ke:账号-&gt;Setting-&gt;SSH and GPG keys-&gt;New SSH key，将id_rsa.pub中的内容复制进去就行了。<br>在测试SSH过程中，如果报Permissions 0644 for ‘/root/.ssh/id_rsa’ are too open. 错误，修改id_rsa的权限：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chmod 0600 id_rsa</div></pre></td></tr></table></figure></p>
