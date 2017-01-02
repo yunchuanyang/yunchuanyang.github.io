@@ -166,6 +166,58 @@
 
 
   
+    <article id="post-时间格式化-js" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/01/02/时间格式化-js/">时间格式化-js</a>
+    </h1>
+  
+
+        
+        <a href="/2017/01/02/时间格式化-js/" class="archive-article-date">
+  	<time datetime="2017-01-02T03:14:17.108Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</div><div class="line">formatTime(date);</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">formatTime</span>(<span class="params">date</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> year = date.getFullYear();</div><div class="line">    <span class="keyword">var</span> month = <span class="string">"0"</span>+(date.getMonth()+<span class="number">1</span>);</div><div class="line">    <span class="keyword">var</span> day = <span class="string">"0"</span>+date.getDate();</div><div class="line">    <span class="keyword">var</span> hour =<span class="string">"0"</span>+ date.getHours();</div><div class="line">    <span class="keyword">var</span> minutes = <span class="string">"0"</span> + date.getMinutes();</div><div class="line">    <span class="keyword">var</span> second =<span class="string">"0"</span>+ date.getSeconds();</div><div class="line">    <span class="keyword">return</span> year+<span class="string">'-'</span>+month.substr(<span class="number">-2</span>)+<span class="string">'-'</span>+day.substr(<span class="number">-2</span>)+<span class="string">' '</span>+hour.substr(<span class="number">-2</span>)+<span class="string">':'</span>+minutes.substr(<span class="number">-2</span>)+<span class="string">':'</span>+second.substr(<span class="number">-2</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/01/02/时间格式化-js/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  <div class="duoshuo"></div>
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
