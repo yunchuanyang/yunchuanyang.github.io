@@ -125,6 +125,54 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-使用github和hexo搭建免费博客过程中遇错集锦" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p><a href="http://jiji262.github.io/2016/04/15/2016-04-15-hexo-github-pages-blog/" target="_blank" rel="external">参考文章</a>：<a href="http://jiji262.github.io/2016/04/15/2016-04-15-hexo-github-pages-blog/" target="_blank" rel="external">http://jiji262.github.io/2016/04/15/2016-04-15-hexo-github-pages-blog/</a><br><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">hexo中文官网</a>:<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">https://hexo.io/zh-cn/docs/</a></p>
+<p>####[hexo主题]<br><a href="https://github.com/iissnan/hexo-theme-next">next</a><br><a href="https://github.com/TryGhost/Casper">Casper</a><br><a href="https://github.com/daleanthony">daleanthony</a><br><a href="https://link.zhihu.com/?target=https%3A//github.com/litten/hexo-theme-yilia" target="_blank" rel="external">yilia</a><br><a href="https://link.zhihu.com/?target=https%3A//github.com/A-limon/pacman" target="_blank" rel="external">pacman</a><br><a href="https://link.zhihu.com/?target=https%3A//github.com/AlxMedia/hueman" target="_blank" rel="external">hueman</a></p>
+</blockquote>
+<h4 id="解决hexo命令无效方法："><a href="#解决hexo命令无效方法：" class="headerlink" title="解决hexo命令无效方法："></a>解决hexo命令无效方法：</h4><blockquote>
+<p>1.配置环境变量：HEXO_HOME=hexo安装路径</p>
+<p>或1.使用sudo命令安装hexo:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">$ sudo npm install -g hexo-cli </div><div class="line">$ hexo init</div><div class="line">$ <span class="built_in">cd</span></div><div class="line">$ npm install</div><div class="line">``` </div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">#### _config.xml文件配置注意</span></div><div class="line">&gt; 配置项冒号后面一定要有一个空格。例如：“<span class="built_in">type</span>: git”</div><div class="line"></div><div class="line"><span class="comment">#### hexo d遇到问题</span></div><div class="line">&gt; 1.不要使用cmd来操作hexo d命令。要用git bash命令。</div><div class="line">&gt; 2.最好使用git bash命令行工具，其它工具比如babun虽然也兼容了git bash命令，但在使用https方式发布代码时，遇到输入github账号密码步骤，可能会没有响应。</div><div class="line"></div><div class="line"><span class="comment">#### 使用https方式发布代码</span></div><div class="line">&gt; _config.xml中配置如下：</div><div class="line">&gt; deploy: </div><div class="line">    <span class="built_in">type</span>: git</div><div class="line">    repo: https://github.com/yourname/yourname.github.io</div><div class="line"></div><div class="line"><span class="comment">#### 使用ssh方式发布</span></div><div class="line">&gt; [github设置添加SSH](http://blog.csdn.net/binyao02123202/article/details/20130891)</div><div class="line">&gt; [github设置添加SSH-help](https://help.github.com/articles/generating-an-ssh-key/)</div><div class="line">&gt; 需要在github上配置ssh ke:账号-&gt;Setting-&gt;SSH and GPG keys-&gt;New SSH key，将id_rsa.pub中的内容复制进去就行了。</div><div class="line">&gt; 在测试SSH过程中，如果报Permissions 0644 <span class="keyword">for</span> ‘/root/.ssh/id_rsa’ are too open. 错误，修改id_rsa的权限：</div><div class="line">```bash</div><div class="line">chmod 0600 id_rsa</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="git记住用户名和密码"><a href="#git记住用户名和密码" class="headerlink" title="git记住用户名和密码"></a>git记住用户名和密码</h4><blockquote>
+<p><a href="http://www.cnblogs.com/snake-hand/p/3142974.html" target="_blank" rel="external">git记住用户名和密码</a></p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/01/02/使用github和hexo搭建免费博客过程中遇错集锦/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  <div class="duoshuo"></div>
+
+
+
+
+  
     <article id="post-input内容改变后，ie11中change事件执行两次的解决办法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
