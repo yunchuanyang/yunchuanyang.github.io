@@ -125,6 +125,61 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-超链接target安全漏洞" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>如果一个链接上用到了 target = ‘_blank’属性且未加上 rel = “noopener noreferrer” 属性，则攻击者可以利用漏洞进行钓鱼攻击。在用户点击到钓鱼链接后，攻击者可以通过使用window.opener.location强迫用户的前一个页面跳转到钓鱼页面，欺骗用户在钓鱼页面上登录，窃取用户口令。</p>
+</blockquote>
+<h2 id="漏洞存在场景："><a href="#漏洞存在场景：" class="headerlink" title="漏洞存在场景："></a>漏洞存在场景：</h2><ol>
+<li><p>NO1、使用target=’_blank’，且无rel=”noopener”或rel=”noopener noreferrer”属性。</p>
+</li>
+<li><p>NO2、使用window.open，但第二个参数使用默认值（即以_blank或默认方式打开）。</p>
+</li>
+</ol>
+<blockquote>
+<p>这两种使用情况都存在安全漏洞。</p>
+</blockquote>
+<h2 id="修复方法："><a href="#修复方法：" class="headerlink" title="修复方法："></a>修复方法：</h2><blockquote>
+<p>针对NO1的情况，在标签上加上rel=”noopener noreferrer”属性即可。</p>
+<p>针对NO2的情况：</p>
+<p>错误写法：window.open(‘evil.html’, ‘_blank’);    或window.open(‘evil.html’);</p>
+<p>正确写法：var win=window.open(“evil.html”,’_blank’);win.opener=null;</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/02/24/超链接target安全漏洞/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  <div class="duoshuo"></div>
+
+
+
+
+  
     <article id="post-使用github和hexo搭建免费博客过程中遇错集锦" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
