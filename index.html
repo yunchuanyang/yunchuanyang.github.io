@@ -125,6 +125,88 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-前端模块加载规范" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/01/前端模块加载规范/">前端模块加载规范</a>
+    </h1>
+  
+
+        
+        <a href="/2017/03/01/前端模块加载规范/" class="archive-article-date">
+  	<time datetime="2017-03-01T13:18:33.064Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>模块加载规范：CommonJS、AMD 和 CMD，而框架Node.js、RequireJS 和 Seajs 分别实现了上述规范。</p>
+<p>没有这些模块加载规范时，加载模块是一种什么情况？<br>只能在HTML中通过<code>&lt;script&gt;</code>来引入js文件，同时无法区分函数来源于哪个js文件，而且要用过多全局变量。</p>
+<p>使用模块加载后，这些问题都解决了。</p>
+<h3 id="CommonJS："><a href="#CommonJS：" class="headerlink" title="CommonJS："></a>CommonJS：</h3><p>Node.js使用的规范，同步加载JS脚本。在服务端没问题，因为文件都在磁盘上。但因为浏览器的特性，需要异步加载js，否则会失去响应。所以该规范无法在浏览器直接使用。</p>
+<p>浏览器不兼容CommonJS的根本原因，在于缺少四个Node.js环境的变量:module、exports、require、global</p>
+<p>参考：<a href="http://www.ruanyifeng.com/blog/2015/05/commonjs-in-browser.html" target="_blank" rel="external">浏览器加载 CommonJS 模块的原理与实现</a></p>
+<h3 id="AMD："><a href="#AMD：" class="headerlink" title="AMD："></a>AMD：</h3><p>Require.js使用的规范，异步加载JS。前置加载，就是在写主逻辑之前必须指定所有的依赖，并且等待所有的依赖被异步加载完后执行回调函数。依赖的模块同时被加载，没有顺序依赖。</p>
+<p> require([‘module1’, ‘module2’], function(m1, m2){</p>
+<p>   //主回调逻辑</p>
+<p>   m1.test();</p>
+<p>   m2.test();`</p>
+<p>})</p>
+<h3 id="CMD"><a href="#CMD" class="headerlink" title="CMD:"></a>CMD:</h3><p>Sea.js使用的规范。就近加载。Sea.js遇到依赖后，只会去下载JS文件，等待所有的依赖下载完成后，再从头开始执行主逻辑。因此被依赖模块的执行顺序和书写顺序完全一致。</p>
+<p>define(function(require, exports, module){</p>
+<p>  var foo= require(‘foo’);//同步加载</p>
+<p>  foo.add(1, 2);</p>
+<p>  require.async(‘math’, fucntion(math){//异步加载</p>
+<p>   math.add(1,2);</p>
+<p> })</p>
+<p>});</p>
+<h3 id="ES6模块化："><a href="#ES6模块化：" class="headerlink" title="ES6模块化："></a>ES6模块化：</h3><p>在 ES6 中，我们使用 export 关键字来导出模块，使用 import 关键字引用模块。如果js解析器不识别ES6语法，需要将ES6语法转换成低版本语法。目前所有的引擎都还没有实现import，我们在node中使用babel支持ES6，也仅仅是将ES6转码为ES5再执行，import语法会被转码为require。</p>
+<p>参考：</p>
+<p><a href="http://www.cnblogs.com/dupd/p/5951311.html" target="_blank" rel="external">ES6模块的import和export用法总结</a></p>
+<p><a href="http://imweb.io/topic/582293894067ce9726778be9" target="_blank" rel="external">Node中没搞明白require和import，你会被坑的很惨</a></p>
+</blockquote>
+<p>感谢：<br><a href="https://segmentfault.com/a/1190000000733959#articleHeader6" target="_blank" rel="external">详解JavaScript模块化开发</a></p>
+<p><a href="http://www.cnblogs.com/dupd/p/5951311.html" target="_blank" rel="external">ES6模块的import和export用法总结</a></p>
+<p><a href="http://imweb.io/topic/582293894067ce9726778be9" target="_blank" rel="external">Node中没搞明白require和import，你会被坑的很惨</a></p>
+<p><a href="http://www.ruanyifeng.com/blog/2015/05/commonjs-in-browser.html" target="_blank" rel="external">浏览器加载 CommonJS 模块的原理与实现</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/03/01/前端模块加载规范/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  <div class="duoshuo"></div>
+
+
+
+
+  
     <article id="post-target=&#39;_blank&#39;安全漏洞" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

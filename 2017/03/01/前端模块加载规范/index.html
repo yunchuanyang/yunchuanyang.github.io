@@ -6,14 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://github.com/yunchuanyang">
-  <title>Archives: 2017 | yunchuanyang笔记</title>
+  <title>前端模块加载规范 | yunchuanyang笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="yunchuanyang笔记">
-<meta property="og:url" content="https://github.com/yunchuanyang/archives/2017/index.html">
+  <meta name="description" content="模块加载规范：CommonJS、AMD 和 CMD，而框架Node.js、RequireJS 和 Seajs 分别实现了上述规范。
+没有这些模块加载规范时，加载模块是一种什么情况？只能在HTML中通过&amp;lt;script&amp;gt;来引入js文件，同时无法区分函数来源于哪个js文件，而且要用过多全局变量。
+使用模块加载后，这些问题都解决了。
+CommonJS：Node.js使用的规范，同步加载JS脚">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端模块加载规范">
+<meta property="og:url" content="https://github.com/yunchuanyang/2017/03/01/前端模块加载规范/index.html">
 <meta property="og:site_name" content="yunchuanyang笔记">
+<meta property="og:description" content="模块加载规范：CommonJS、AMD 和 CMD，而框架Node.js、RequireJS 和 Seajs 分别实现了上述规范。
+没有这些模块加载规范时，加载模块是一种什么情况？只能在HTML中通过&amp;lt;script&amp;gt;来引入js文件，同时无法区分函数来源于哪个js文件，而且要用过多全局变量。
+使用模块加载后，这些问题都解决了。
+CommonJS：Node.js使用的规范，同步加载JS脚">
+<meta property="og:updated_time" content="2017-03-01T13:32:30.392Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="yunchuanyang笔记">
+<meta name="twitter:title" content="前端模块加载规范">
+<meta name="twitter:description" content="模块加载规范：CommonJS、AMD 和 CMD，而框架Node.js、RequireJS 和 Seajs 分别实现了上述规范。
+没有这些模块加载规范时，加载模块是一种什么情况？只能在HTML中通过&amp;lt;script&amp;gt;来引入js文件，同时无法区分函数来源于哪个js文件，而且要用过多全局变量。
+使用模块加载后，这些问题都解决了。
+CommonJS：Node.js使用的规范，同步加载JS脚">
   
     <link rel="alternative" href="/atom.xml" title="yunchuanyang笔记" type="application/atom+xml">
   
@@ -123,184 +136,162 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-前端模块加载规范" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      前端模块加载规范
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/03/01/前端模块加载规范/" class="archive-article-date">
+
+        
+        <a href="/2017/03/01/前端模块加载规范/" class="archive-article-date">
   	<time datetime="2017-03-01T13:18:33.064Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-03-01</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/03/01/前端模块加载规范/">前端模块加载规范</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>模块加载规范：CommonJS、AMD 和 CMD，而框架Node.js、RequireJS 和 Seajs 分别实现了上述规范。</p>
+<p>没有这些模块加载规范时，加载模块是一种什么情况？<br>只能在HTML中通过<code>&lt;script&gt;</code>来引入js文件，同时无法区分函数来源于哪个js文件，而且要用过多全局变量。</p>
+<p>使用模块加载后，这些问题都解决了。</p>
+<h3 id="CommonJS："><a href="#CommonJS：" class="headerlink" title="CommonJS："></a>CommonJS：</h3><p>Node.js使用的规范，同步加载JS脚本。在服务端没问题，因为文件都在磁盘上。但因为浏览器的特性，需要异步加载js，否则会失去响应。所以该规范无法在浏览器直接使用。</p>
+<p>浏览器不兼容CommonJS的根本原因，在于缺少四个Node.js环境的变量:module、exports、require、global</p>
+<p>参考：<a href="http://www.ruanyifeng.com/blog/2015/05/commonjs-in-browser.html" target="_blank" rel="external">浏览器加载 CommonJS 模块的原理与实现</a></p>
+<h3 id="AMD："><a href="#AMD：" class="headerlink" title="AMD："></a>AMD：</h3><p>Require.js使用的规范，异步加载JS。前置加载，就是在写主逻辑之前必须指定所有的依赖，并且等待所有的依赖被异步加载完后执行回调函数。依赖的模块同时被加载，没有顺序依赖。</p>
+<p> require([‘module1’, ‘module2’], function(m1, m2){</p>
+<p>   //主回调逻辑</p>
+<p>   m1.test();</p>
+<p>   m2.test();`</p>
+<p>})</p>
+<h3 id="CMD"><a href="#CMD" class="headerlink" title="CMD:"></a>CMD:</h3><p>Sea.js使用的规范。就近加载。Sea.js遇到依赖后，只会去下载JS文件，等待所有的依赖下载完成后，再从头开始执行主逻辑。因此被依赖模块的执行顺序和书写顺序完全一致。</p>
+<p>define(function(require, exports, module){</p>
+<p>  var foo= require(‘foo’);//同步加载</p>
+<p>  foo.add(1, 2);</p>
+<p>  require.async(‘math’, fucntion(math){//异步加载</p>
+<p>   math.add(1,2);</p>
+<p> })</p>
+<p>});</p>
+<h3 id="ES6模块化："><a href="#ES6模块化：" class="headerlink" title="ES6模块化："></a>ES6模块化：</h3><p>在 ES6 中，我们使用 export 关键字来导出模块，使用 import 关键字引用模块。如果js解析器不识别ES6语法，需要将ES6语法转换成低版本语法。目前所有的引擎都还没有实现import，我们在node中使用babel支持ES6，也仅仅是将ES6转码为ES5再执行，import语法会被转码为require。</p>
+<p>参考：</p>
+<p><a href="http://www.cnblogs.com/dupd/p/5951311.html" target="_blank" rel="external">ES6模块的import和export用法总结</a></p>
+<p><a href="http://imweb.io/topic/582293894067ce9726778be9" target="_blank" rel="external">Node中没搞明白require和import，你会被坑的很惨</a></p>
+</blockquote>
+<p>感谢：<br><a href="https://segmentfault.com/a/1190000000733959#articleHeader6" target="_blank" rel="external">详解JavaScript模块化开发</a></p>
+<p><a href="http://www.cnblogs.com/dupd/p/5951311.html" target="_blank" rel="external">ES6模块的import和export用法总结</a></p>
+<p><a href="http://imweb.io/topic/582293894067ce9726778be9" target="_blank" rel="external">Node中没搞明白require和import，你会被坑的很惨</a></p>
+<p><a href="http://www.ruanyifeng.com/blog/2015/05/commonjs-in-browser.html" target="_blank" rel="external">浏览器加载 CommonJS 模块的原理与实现</a></p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=https://github.com/yunchuanyang/2017/03/01/前端模块加载规范/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/24/target='_blank'安全漏洞/" class="archive-article-date">
-  	<time datetime="2017-02-24T14:13:13.142Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/24/target='_blank'安全漏洞/">target=&#39;_blank&#39;安全漏洞</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2017/02/24/target='_blank'安全漏洞/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">target=&#39;_blank&#39;安全漏洞</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/02/使用github和hexo搭建免费博客过程中遇错集锦/" class="archive-article-date">
-  	<time datetime="2017-01-02T03:49:27.181Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/02/使用github和hexo搭建免费博客过程中遇错集锦/">使用github和hexo搭建免费博客过程中遇错集锦</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/02/input内容改变后，ie11中change事件执行两次的解决办法/" class="archive-article-date">
-  	<time datetime="2017-01-02T03:24:52.629Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/02/input内容改变后，ie11中change事件执行两次的解决办法/">ie11中change时间执行两次的解决方法</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/02/时间格式化-js/" class="archive-article-date">
-  	<time datetime="2017-01-02T03:14:17.108Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-02</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/02/时间格式化-js/">时间格式化-js</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="前端模块加载规范" data-title="前端模块加载规范" data-url="https://github.com/yunchuanyang/2017/03/01/前端模块加载规范/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/01/hello-world/" class="archive-article-date">
-  	<time datetime="2017-01-01T09:45:35.388Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/01/hello-world/">Hello World</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -323,8 +314,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
